@@ -11,7 +11,8 @@ const lName = 'Sen';
 const randNum = Math.floor(Math.random()*6+1);
 
 const getDate = () => {
-  const today = new Date;
+  const date = new Date;
+  // const year = date.getFullYear();
 
   const options = {
     weekday: 'long',
@@ -20,10 +21,10 @@ const getDate = () => {
     day: 'numeric'
   };
 
-  return today.toLocaleDateString('en-US', options);
+  return date.toLocaleDateString('en-US', options);
 }
 
-const date = getDate();
+const dateInfo = getDate();
 
 
 // 2 Parameters, what to show, where to show
@@ -39,7 +40,7 @@ ReactDOM.render(
     </ul>
     <p>This app is created by {`${fName} ${lName}`}.</p>
     <p>My random number is {randNum}.</p>
-    <p>Today is {date}.</p>
+    <p>Today is {dateInfo}.</p>
   </div>, 
   document.getElementById('root')
 );
