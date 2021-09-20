@@ -11,7 +11,7 @@ const lName = 'Sen';
 const randNum = Math.floor(Math.random()*6+1);
 
 const getDate = () => {
-  const date = new Date;
+  const date = new Date();
   // const year = date.getFullYear();
 
   const options = {
