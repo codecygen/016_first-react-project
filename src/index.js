@@ -5,74 +5,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const fName = 'Aras';
-const lName = 'Sen';
-const randNum = Math.floor(Math.random()*6+1);
-
-const getDate = () => {
-  const date = new Date();
-  // const year = date.getFullYear();
-
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
-
-  return date.toLocaleDateString('en-US', options);
-}
-
-const getTime = () => {
-  const date = new Date();
-
-  const options = {
-    hour: '2-digit',
-    minute: '2-digit'
-  };
-
-  return date.toLocaleDateString('en-US', options);
-}
-
-const dateInfo = getDate();
-const timeInfo = getTime();
-const timeHourInDay =  new Date().getHours();
-
-let dayGreeting = '';
-let dayGreetingStyle = {};
-
-if(timeHourInDay >= 0 && timeHourInDay <= 5) {
-  dayGreeting = 'Good Night!';
-  dayGreetingStyle = {
-    color: 'blue'
-  };
-} else if(timeHourInDay >= 6 && timeHourInDay <= 11) {
-  dayGreeting = 'Good Morning!';
-  dayGreetingStyle = {
-    color: 'red'
-  };
-} else if(timeHourInDay >= 12 && timeHourInDay <= 17) {
-  dayGreeting = 'Good Afternoon!';
-  dayGreetingStyle = {
-    color: 'green'
-  };
-} else {
-  dayGreeting = 'Good Evening!';
-  dayGreetingStyle = {
-    color: 'orange'
-  };
-}
-
-const butterChickenLink = 'https://healthyfitnessmeals.com/wp-content/uploads/2020/01/Butter-chicken.jpg';
-const sushiLink = 'https://s3-media0.fl.yelpcdn.com/bphoto/hyXoHqyUePwNxarPHn5Ntw/o.jpg';
-const pizzaLink = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Pizza-from-Scratch_EXPS_FT20_8621_F_0505_1_home.jpg';
-
-const customStyle = {
-  color: "red",
-  fontSize: "50px",
-  border: "1px solid black"
-}
+import App from '../src/App.jsx';
 
 // 2 Parameters, what to show, where to show
 // Curly braces will accept one line javascript code.
@@ -86,22 +19,13 @@ const customStyle = {
 
 // Check out inline styling too. instead of style="color: red", we use style={{color: "blue"}}.
 // First curly braces is for object creation. Outmost curly braces is to integrate an expression into HTML.
+
+// <Heading /> is a component which was imported from a function in "Heading.jsx"
+// import Heading from '../src/Heading.jsx';
+// This is used to import that compenent into the ReactDOM.render();
+
+//<List /> is a component which was imported from a function in "List.jsx"
 ReactDOM.render(
-  <div>
-    <h1 style={customStyle} className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
-    <h1 style={dayGreetingStyle} className="heading">{dayGreeting}</h1>
-    <ul style={{color: "blue"}}>
-      <li>Butter Chicken</li>
-      <img src={butterChickenLink} alt="Butter Chicken Img"></img>
-      <li>Sushi</li>
-      <img src={sushiLink} alt="Sushi Img"></img>
-      <li>Pizza</li>
-      <img src={pizzaLink} alt="Pizza Img"></img>
-    </ul>
-    <p>This app is created by {`${fName} ${lName}`}.</p>
-    <p>My random number is {randNum}.</p>
-    <p>Time: {timeInfo}</p>
-    <p>Today is {dateInfo}, {timeHourInDay}.</p>
-  </div>, 
+    <App />, 
   document.getElementById('root')
 );
