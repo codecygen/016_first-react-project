@@ -24,7 +24,45 @@ const getDate = () => {
   return date.toLocaleDateString('en-US', options);
 }
 
+const getTime = () => {
+  const date = new Date();
+
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+
+  return date.toLocaleDateString('en-US', options);
+}
+
 const dateInfo = getDate();
+const timeInfo = getTime();
+const timeHourInDay =  new Date().getHours();
+
+let dayGreeting = '';
+let dayGreetingStyle = {};
+
+if(timeHourInDay >= 0 && timeHourInDay <= 5) {
+  dayGreeting = 'Good Night!';
+  dayGreetingStyle = {
+    color: 'blue'
+  };
+} else if(timeHourInDay >= 6 && timeHourInDay <= 11) {
+  dayGreeting = 'Good Morning!';
+  dayGreetingStyle = {
+    color: 'red'
+  };
+} else if(timeHourInDay >= 12 && timeHourInDay <= 17) {
+  dayGreeting = 'Good Afternoon!';
+  dayGreetingStyle = {
+    color: 'green'
+  };
+} else {
+  dayGreeting = 'Good Evening!';
+  dayGreetingStyle = {
+    color: 'orange'
+  };
+}
 
 const butterChickenLink = 'https://healthyfitnessmeals.com/wp-content/uploads/2020/01/Butter-chicken.jpg';
 const sushiLink = 'https://s3-media0.fl.yelpcdn.com/bphoto/hyXoHqyUePwNxarPHn5Ntw/o.jpg';
@@ -51,6 +89,7 @@ const customStyle = {
 ReactDOM.render(
   <div>
     <h1 style={customStyle} className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
+    <h1 style={dayGreetingStyle}>{dayGreeting}</h1>
     <ul style={{color: "blue"}}>
       <li>Butter Chicken</li>
       <img src={butterChickenLink} alt="Butter Chicken Img"></img>
@@ -61,7 +100,8 @@ ReactDOM.render(
     </ul>
     <p>This app is created by {`${fName} ${lName}`}.</p>
     <p>My random number is {randNum}.</p>
-    <p>Today is {dateInfo}.</p>
+    <p>Time: {timeInfo}</p>
+    <p>Today is {dateInfo}, {timeHourInDay}.</p>
   </div>, 
   document.getElementById('root')
 );
