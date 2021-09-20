@@ -30,7 +30,11 @@ const butterChickenLink = 'https://healthyfitnessmeals.com/wp-content/uploads/20
 const sushiLink = 'https://s3-media0.fl.yelpcdn.com/bphoto/hyXoHqyUePwNxarPHn5Ntw/o.jpg';
 const pizzaLink = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Pizza-from-Scratch_EXPS_FT20_8621_F_0505_1_home.jpg';
 
-
+const customStyle = {
+  color: "red",
+  fontSize: "50px",
+  border: "1px solid black"
+}
 
 // 2 Parameters, what to show, where to show
 // Curly braces will accept one line javascript code.
@@ -40,12 +44,13 @@ const pizzaLink = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-pro
 // inside the HTML elements as attributes. Otherwise debugger of browsers will show error.
 // For example "contenteditable" attribute consists of lowercase characters as an HTML attribute.
 // When you use such things in JSX, make it a camelcase, "contentEditable"
-// or instead of "spellcheck" use "spellCheck".
+// or instead of "spellcheck" use "spellCheck". These are how it is written in Javascript.
 
-// Check out inline styling too. instead of style="color: red", we use style={{color: "blue"}}
+// Check out inline styling too. instead of style="color: red", we use style={{color: "blue"}}.
+// First curly braces is for object creation. Outmost curly braces is to integrate an expression into HTML.
 ReactDOM.render(
   <div>
-    <h1 className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
+    <h1 style={customStyle} className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
     <ul style={{color: "blue"}}>
       <li>Butter Chicken</li>
       <img src={butterChickenLink} alt="Butter Chicken Img"></img>
