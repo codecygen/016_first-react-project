@@ -26,6 +26,11 @@ const getDate = () => {
 
 const dateInfo = getDate();
 
+const butterChickenLink = 'https://healthyfitnessmeals.com/wp-content/uploads/2020/01/Butter-chicken.jpg';
+const sushiLink = 'https://s3-media0.fl.yelpcdn.com/bphoto/hyXoHqyUePwNxarPHn5Ntw/o.jpg';
+const pizzaLink = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Pizza-from-Scratch_EXPS_FT20_8621_F_0505_1_home.jpg';
+
+
 
 // 2 Parameters, what to show, where to show
 // Curly braces will accept one line javascript code.
@@ -41,8 +46,11 @@ ReactDOM.render(
     <h1 className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
     <ul>
       <li>Butter Chicken</li>
+      <img src={butterChickenLink} alt="Butter Chicken Img"></img>
       <li>Sushi</li>
+      <img src={sushiLink} alt="Sushi Img"></img>
       <li>Pizza</li>
+      <img src={pizzaLink} alt="Pizza Img"></img>
     </ul>
     <p>This app is created by {`${fName} ${lName}`}.</p>
     <p>My random number is {randNum}.</p>
