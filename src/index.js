@@ -89,7 +89,7 @@ const customStyle = {
 ReactDOM.render(
   <div>
     <h1 style={customStyle} className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
-    <h1 style={dayGreetingStyle}>{dayGreeting}</h1>
+    <h1 style={dayGreetingStyle} className="heading">{dayGreeting}</h1>
     <ul style={{color: "blue"}}>
       <li>Butter Chicken</li>
       <img src={butterChickenLink} alt="Butter Chicken Img"></img>
