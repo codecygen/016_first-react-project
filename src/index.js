@@ -41,10 +41,12 @@ const pizzaLink = 'https://tmbidigitalassetsazure.blob.core.windows.net/rms3-pro
 // For example "contenteditable" attribute consists of lowercase characters as an HTML attribute.
 // When you use such things in JSX, make it a camelcase, "contentEditable"
 // or instead of "spellcheck" use "spellCheck".
+
+// Check out inline styling too. instead of style="color: red", we use style={{color: "blue"}}
 ReactDOM.render(
   <div>
     <h1 className="heading" contentEditable="true" spellCheck="true">My Favorite Foods</h1>
-    <ul>
+    <ul style={{color: "blue"}}>
       <li>Butter Chicken</li>
       <img src={butterChickenLink} alt="Butter Chicken Img"></img>
       <li>Sushi</li>
