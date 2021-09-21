@@ -1,4 +1,6 @@
 import React from 'react';
+import PI, { doublePI, triplePI } from '../components/Math.jsx';
+// import * as PI from '../components/Math.jsx';
 
 const fName = 'Aras';
 const lName = 'Sen';
@@ -38,6 +40,7 @@ const Misc = () => {
         <section>
             <p>This app is created by {`${fName} ${lName}`}.</p>
             <p>My random number is {randNum}.</p>
+            <p>PI is {PI}. Square power of PI is {doublePI()}. Cubic power of PI is {triplePI()}.</p>
             <p>Time: {timeInfo}</p>
             <p>Today is {dateInfo}, {timeHourInDay}.</p>
         </section>

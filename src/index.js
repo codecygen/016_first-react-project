@@ -25,6 +25,15 @@ import App from '../src/App.jsx';
 // This is used to import that compenent into the ReactDOM.render();
 
 //<List /> is a component which was imported from a function in "List.jsx"
+
+// There are couple of ways to import multiple stuff from a jsx file. Examples are given below.
+// import PI, { doublePI, triplePI } from '../components/Math.jsx';
+// Then you need to call them as PI, doublePI(), triplePI().
+// This method is favored over the method that is mentioned on the other line.
+
+// import * as PI from '../components/Math.jsx';
+// Then you need to call them as PI.default, PI.doublePI(), PI.triplePI().
+// This method is frowned upon.
 ReactDOM.render(
     <App />, 
   document.getElementById('root')
