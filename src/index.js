@@ -22,7 +22,7 @@ import App from '../src/App.jsx';
 
 // <Heading /> is a component which was imported from a function in "Heading.jsx"
 // import Heading from '../src/Heading.jsx';
-// This is used to import that compenent into the ReactDOM.render();
+// This is used to import that component into the ReactDOM.render();
 
 //<List /> is a component which was imported from a function in "List.jsx"
 
