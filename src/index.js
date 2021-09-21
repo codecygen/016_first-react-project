@@ -26,7 +26,12 @@ import App from '../src/App.jsx';
 
 //<List /> is a component which was imported from a function in "List.jsx"
 
-// There are couple of ways to import multiple stuff from a jsx file. Examples are given below.
+// There are couple of ways to import multiple stuff from a jsx file. Examples are given below for Math.jsx file.
+// Remember that PI is exported as export default PI;
+// Default PI is an expression.
+// Secondary things that are exported as export { doublePI, triplePI };
+// Secondary things are just functions.
+
 // import PI, { doublePI, triplePI } from '../components/Math.jsx';
 // Then you need to call them as PI, doublePI(), triplePI().
 // This method is favored over the method that is mentioned on the other line.
