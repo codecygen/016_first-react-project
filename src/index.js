@@ -7,6 +7,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../src/App.jsx';
 
+// It is really important to use text/JSX as a type instead of text/Javascript as index.js is a JSX file.
+// This will prevent errors to occur while programming.
+// <script src="../src/index.js" type="text/JSX"></script>
+// This is for HTML file.
+
 // 2 Parameters, what to show, where to show
 // Curly braces will accept one line javascript code.
 // Simply it takes expressions but not statements.
