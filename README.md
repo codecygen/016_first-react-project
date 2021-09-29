@@ -24,7 +24,7 @@ or instead of "spellcheck" use "spellCheck". These are how it is written in Java
 Check out inline styling too. instead of style="color: red", we use style={{color: "blue"}}.
 First curly braces is for object creation. Outmost curly braces is to integrate an expression into HTML.
 
-const List = () => {
+<!-- const List = () => {
     return (
     <ul style={{color: "blue"}}>
         <li>Butter Chicken</li>
@@ -34,8 +34,7 @@ const List = () => {
         <li>Pizza</li>
         <img src={pizzaLink} alt="Pizza Img"></img>
   </ul>);
-}
-
+} -->
 
 <Heading /> is a component which was imported from a function in "Heading.jsx"
 import Heading from '../src/Heading.jsx';
