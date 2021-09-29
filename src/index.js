@@ -29,7 +29,7 @@ import App from '../src/App.jsx';
 // import Heading from '../src/Heading.jsx';
 // This is used to import that component into the ReactDOM.render();
 
-//<List /> is a component which was imported from a function in "List.jsx"
+// <List /> is a component which was imported from a function in "List.jsx"
 
 // There are couple of ways to import multiple stuff from a jsx file. Examples are given below for Math.jsx file.
 // Remember that PI is exported as export default PI;
