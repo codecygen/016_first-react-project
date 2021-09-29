@@ -24,9 +24,23 @@ or instead of "spellcheck" use "spellCheck". These are how it is written in Java
 Check out inline styling too. instead of style="color: red", we use style={{color: "blue"}}.
 First curly braces is for object creation. Outmost curly braces is to integrate an expression into HTML.
 
+const List = () => {
+    return (
+    <ul style={{color: "blue"}}>
+        <li>Butter Chicken</li>
+        <img src={butterChickenLink} alt="Butter Chicken Img"></img>
+        <li>Sushi</li>
+        <img src={sushiLink} alt="Sushi Img"></img>
+        <li>Pizza</li>
+        <img src={pizzaLink} alt="Pizza Img"></img>
+  </ul>);
+}
+
+
 <Heading /> is a component which was imported from a function in "Heading.jsx"
 import Heading from '../src/Heading.jsx';
 This is used to import that component into the ReactDOM.render();
+Instead of writing full name you can say import Heading from '../src/Heading';
 
 <List /> is a component which was imported from a function in "List.jsx"
 
