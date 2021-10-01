@@ -58,6 +58,26 @@ const List = () => {
 
 Components
 ===
+```
+import React from 'react';
+<!-- These are all jsx files -->
+import Heading from '../src/components/Heading';
+import List from '../src/components/List';
+import Misc from '../src/components/Misc';
+
+const App = () => {
+    return (
+    <div>
+        <Heading />
+        <List />
+        <Misc />
+    </div>
+    );
+}
+
+export default App;
+```
+
 <Heading /> is a component which was imported from a function in "Heading.jsx"
 import Heading from '../src/Heading.jsx';
 This is used to import that component into the ReactDOM.render();
@@ -102,3 +122,74 @@ import * as PI from '../components/Math.jsx';
 ```
 Then you need to call them as PI.default, PI.doublePI(), PI.triplePI().
 This method is frowned upon.
+
+Props
+===
+
+contacts file will look like this
+```
+const contacts = [
+  {
+    name: "Beyonce",
+    imgURL:
+      "https://blackhistorywall.files.wordpress.com/2010/02/picture-device-independent-bitmap-119.jpg",
+    phone: "+123 456 789",
+    email: "b@beyonce.com"
+  },
+  {
+    name: "Jack Bauer",
+    imgURL:
+      "https://pbs.twimg.com/profile_images/625247595825246208/X3XLea04_400x400.jpg",
+    phone: "+987 654 321",
+    email: "jack@nowhere.com"
+  },
+  {
+    name: "Chuck Norris",
+    imgURL:
+      "https://i.pinimg.com/originals/e3/94/47/e39447de921955826b1e498ccf9a39af.png",
+    phone: "+918 372 574",
+    email: "gmail@chucknorris.com"
+  }
+];
+
+export default contacts;
+```
+
+```
+Check out Card.jsx for more details
+import contacts from '../contacts';
+<Card {...contacts[0]} />
+<Card {...contacts[1]} />
+<Card {...contacts[2]} />
+
+<!-- Aside from passing props like these, you can also pass them like special attributes as such:
+ <Card 
+  name='Aras' 
+  imgURL='imagelink.com' 
+  phone='92358472590' 
+  email='me@me.com' 
+ /> -->
+ ```
+
+ Inside the Card component the passed properties will be used like this:
+
+ ```
+ const Card = (props) => {
+    return(
+        <div>
+            <div className="card">
+                <div className="top">
+                    <h2 className='name'>{props.name}</h2>
+                    <Avatar imgURL={props.imgURL} />
+                </div>
+                <div className="bottom">
+                    <Detail
+                        phone={props.phone}
+                        email={props.email}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+ ```
