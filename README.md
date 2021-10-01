@@ -61,7 +61,10 @@ Components
 <Heading /> is a component which was imported from a function in "Heading.jsx"
 import Heading from '../src/Heading.jsx';
 This is used to import that component into the ReactDOM.render();
-Instead of writing full name you can say import Heading from '../src/Heading';
+Instead of writing full name you can say 
+```
+import Heading from '../src/Heading';
+```
 
 <List /> is a component which was imported from a function in "List.jsx"
 
@@ -93,6 +96,9 @@ import PI, { doublePI, triplePI } from '../components/Math.jsx';
 Then you need to call them as PI, doublePI(), triplePI().
 This method is favored over the method that is mentioned on the other line.
 
+Secondary method is using the following code
+```
 import * as PI from '../components/Math.jsx';
+```
 Then you need to call them as PI.default, PI.doublePI(), PI.triplePI().
 This method is frowned upon.
