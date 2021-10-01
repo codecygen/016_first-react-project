@@ -65,9 +65,9 @@ Instead of writing full name you can say import Heading from '../src/Heading';
 
 <List /> is a component which was imported from a function in "List.jsx"
 
-==================================================
+===
 Exporting Custom Functions and Variables
-==================================================
+===
 There are couple of ways to export multiple stuff from a jsx file. Examples are given below for Math.jsx file.
 Remember that PI is exported as 
 
