@@ -1,7 +1,11 @@
 This React module will focus on ES6
 
+```
+import React from 'react';
 const React = require('react');
+import ReactDOM from 'react-dom';
 const ReactDOM = require('react-dom');
+```
 
 This is my first ReactJS project!
 
