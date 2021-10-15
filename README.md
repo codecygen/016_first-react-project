@@ -859,3 +859,185 @@ const ToDoItem = (props) => {
 
 export default ToDoItem;
 ```
+
+Note Keeping App with Material UI NPM Package:
+===
+
+For more information, refer to "017_keeper-app-project".
+
+```
+// App.jsx
+
+import React, { useState } from 'react';
+import Header from './components/Header';
+import InputNote from './components/InputNote';
+import Note from './components/Note';
+import Footer from './components/Footer';
+// Notes not used anymore
+// import notes from './notes';
+
+const App = () => {
+
+    const [ submittedInput, setSubmittedInput ] = useState([]);
+
+    const handleClick = (inputData) => {
+
+        setSubmittedInput([
+            ...submittedInput, 
+            inputData
+        ]);
+    }
+
+    const deleteNote = (noteIndex) => {
+        setSubmittedInput(allNotes => {
+            return allNotes.filter((eacNote, index) => {
+                return index !== noteIndex;
+            });
+        });
+    }
+
+
+    return(
+        <div>
+            <Header />
+            <InputNote 
+                handleClick={handleClick}
+            />
+            {/* {notes.map((note, index) => 
+                    <Note 
+                        key={index}
+                        {...notes[index]}
+                    />
+            )} */}
+
+            {submittedInput.map((eachNote, index) => 
+                    <Note 
+                        key={index}
+                        id={index}
+                        deleteNote={deleteNote}
+                        {...submittedInput[index]}
+                    />
+            )}
+
+            {/* 
+            <Note {...notes[0]} />
+            <Note {...notes[1]} />
+            <Note {...notes[2]} />
+            <Note {...notes[3]} /> */}
+
+            {/* <Note 
+                title={notes.title}
+                content={notes.content}
+            /> */}
+
+            <Footer />
+        </div>
+    );
+}
+
+export default App;
+```
+
+```
+// InputNote.jsx
+
+import React, { useState } from 'react';
+// Documentation suggests
+// import DeleteIcon from '@mui/icons-material/Delete';
+// Do not use @mui/icons-material/Delete
+// Instead, use @material-ui/icons/Delete
+// as a path.
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
+
+const InputNote = (props) => {
+
+    const [ inputData, setInputData ] = useState({
+        inputAreaText: '',
+        textAreaText: ''
+    });
+
+    const typeNoteFunc = (e) => {
+        // Input name and input value for title typing
+        const { name, value } = e.target;
+
+        name === 'inputArea' ? 
+            setInputData({...inputData, inputAreaText: value}) :
+            setInputData({...inputData, textAreaText: value});
+    }
+
+    return(
+
+        <section id="note-input">
+            <form onSubmit={(e) => {
+                // This prevents submit button from refreshing
+                // webpage.
+                e.preventDefault();
+                props.handleClick(inputData);
+                setInputData({
+                    inputAreaText: '',
+                    textAreaText: ''
+                });
+            }}>
+                <input 
+                    type="text" 
+                    name="inputArea" 
+                    placeholder="Title" 
+                    onChange={typeNoteFunc} 
+                    value={inputData.inputAreaText} 
+                />
+
+                <textarea 
+                    type="text" 
+                    name="textArea" 
+                    placeholder="Take a note..." 
+                    onChange={typeNoteFunc} 
+                    value={inputData.textAreaText}
+                />
+                <div className="btn-container">
+                     <Zoom className="fab-btn" in={true}>
+                        <Fab type="submit"><AddCircleIcon /></Fab>
+                    </Zoom>
+                </div>
+                
+            </form>
+        </section>
+    );
+}
+
+export default InputNote;
+```
+
+```
+// Note.jsx
+
+import React from 'react';
+// Documentation suggests
+// import DeleteIcon from '@mui/icons-material/Delete';
+// Do not use @mui/icons-material/Delete
+// Instead, use @material-ui/icons/Delete
+// as a path.
+import DeleteIcon from '@material-ui/icons/Delete';
+
+const Note = (props) => {
+    return(
+        <section className="note">
+            <h1>{props.inputAreaText}</h1>
+            <p>{props.textAreaText}</p>
+            <div className="btn-container">
+                    <button 
+                        class="delete-btn" 
+                        type="submit"
+                        onClick={() => {
+                            props.deleteNote(props.id);
+                        }}
+                    ><DeleteIcon /></button>
+            </div>
+        </section>
+    );
+}
+
+export default Note;
+```
