@@ -643,6 +643,9 @@ const App = () => {
 export default App;
 ```
 
+Event Handling Practice:
+===
+
 Here is another example. For more information, refer to "025_event-handling-in-react-practice".
 
 ```
