@@ -720,3 +720,142 @@ function App() {
 
 export default App;
 ```
+
+Spread Operator Practice:
+===
+
+For more information, refer to "026_es6-spread-operator-practice".
+
+```
+// App.jsx
+
+import React, { useState } from "react";
+import ToDoItem from './ToDoItem';
+import InputArea from "./InputArea";
+
+const App = () => {
+
+  const [ items, setItems ] = useState([]);
+
+  const handleClick = (item) => {
+    setItems(prevItems => [...prevItems, item]);
+  }
+
+  const deleteItem = (id) => {
+    setItems(prevItems => {
+      return prevItems.filter((items, index) => {
+        return index !== id;
+      });
+    });
+  }
+
+  return (
+    <div className="container">
+      <div className="heading">
+        <h1>To-Do List</h1>
+      </div>
+        <InputArea 
+          onClicked={handleClick}
+        />
+      <div>
+        <ul>
+          {items.map((currentItem, index) => {
+            return(
+              // we used id as an index key too because props have no
+              // way of accessing "key" key.
+              // id will be used to delete the item.
+              // Normally the index value that is passed from map, is not suggested
+              // To be used as a value. For a real project look online for alternative
+              // solutions
+              <ToDoItem 
+                key={index}
+                id={index}
+                item={currentItem}
+                onChecked={deleteItem}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+```
+// InputArea.jsx
+
+import React, { useState } from 'react';
+
+
+const InputArea = (props) => {
+    const [ item, setItem ] = useState('');
+
+    const handleChange = (e) => {
+        const inputValue = e.target.value;
+        setItem(inputValue);
+    }
+
+    return(
+        <div className="form">
+          <input 
+            type="text" 
+            placeholder='Enter New Item'
+            onChange={handleChange}
+            value={item}
+          />
+          <button onClick={() => {
+              props.onClicked(item);
+              setItem('');
+          }}>
+            <span>Add</span>
+          </button>
+        </div>
+    );
+}
+
+export default InputArea;
+```
+
+```
+// ToDoItem.jsx 
+
+import React, { useState } from 'react';
+
+
+
+
+const ToDoItem = (props) => {
+
+    const [ isDone, setIsDone ] = useState(false);
+
+    // prevValue is a hooks term, it takes isDone's previous value as an argument
+    const handleClick = () => {
+        setIsDone(prevValue => {
+            return !prevValue;
+        });
+    }
+    
+    return(
+        <li 
+            // You can use ternary operator inside the style
+            style={{textDecoration: isDone ? 'line-through' : 'none'}}
+            // onClick even can take multiple functions.
+            // for a single function it should be onClick={handleClick}
+            onClick={() => {
+                handleClick();
+                // You can only call props.id argument inside the function
+                // if you have a function like this.
+                // It does not work like onClick={props.onChecked(props.id)}
+                // Because in that case the function will be called immediately.
+                props.onChecked(props.id);
+            }}
+                >{props.item}
+        </li>
+    );
+}
+
+export default ToDoItem;
+```
